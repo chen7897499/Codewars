@@ -34,3 +34,23 @@ class CaesarCipher
     end.join
   end
 end
+
+
+#better solution
+class CaesarCipher
+  def initialize(shift)
+    @shift = shift
+    @chrs = ('a'..'z').to_a * 255
+  end
+
+  def encode(string, meth=:+)
+    string.downcase.chars.to_a.inject('') do |crypt, chr|
+      crypt << (@chrs.include?(chr) ? @chrs[@chrs.index(chr).send(meth, @shift)] : chr)  ##重要的在这里
+      crypt
+    end.upcase
+  end
+  
+  def decode(string)
+    encode(string, :-)
+  end
+end
