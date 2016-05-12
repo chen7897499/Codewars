@@ -21,3 +21,20 @@ function uniteUnique() {
   var lala = result.unique();
   return lala;
 }
+
+function uniteUnique(...lsts) {
+   let args = [].concat(...lsts);
+   return args.filter((arg, i) => args.indexOf(arg) == i);
+}
+
+function uniteUnique() {
+  var uniques = [];
+  var args = Array.prototype.slice.call(arguments);
+  var all = [].concat.apply([], args);
+  all.forEach(function(number) {
+    if (uniques.indexOf(number) === -1) {
+      uniques.push(number);  
+    }
+  }); 
+  return uniques;   
+}
