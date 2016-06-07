@@ -6,3 +6,5 @@ gets.to_i.times do
     sum = ((3*p1*(p1+1))/2) + ((5*p2*(p2+1))/2) - ((15*p3*(p3+1))/2) 
     puts sum
 end
+
+#https://www.hackerrank.com/contests/projecteuler/challenges/euler001
